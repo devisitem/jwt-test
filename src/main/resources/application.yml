@@ -1,0 +1,24 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop #run: Drop create Alter , terminate: Drop
+    properties:
+      hibernate:
+        format-sql: true
+        show-sql: true
+    defer-datasource-initialization: true
+
+logging:
+  level:
+    me.kimchi: DEBUG
