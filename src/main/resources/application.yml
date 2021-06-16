@@ -22,3 +22,8 @@ spring:
 logging:
   level:
     me.kimchi: DEBUG
+
+jwt:
+  header: Autorization
+  secret: c2xvdy1kb3duLXlvdS1jcmF6eS1jaGlsZC15b3UtYXJlLXNvLWFtYml0aW91cy1mb3ItYS1qdWJlcm5pbGUK
+  token-validity-in-seconds: 86400
