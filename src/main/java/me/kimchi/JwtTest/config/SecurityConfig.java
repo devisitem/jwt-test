@@ -6,6 +6,7 @@ import me.kimchi.JwtTest.jwt.JwtAuthenticationEntryPoint;
 import me.kimchi.JwtTest.jwt.JwtSecurityConfig;
 import me.kimchi.JwtTest.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -65,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/hello").permitAll()
                 .antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/signup").permitAll()
+                .antMatchers("/api/encode").permitAll()
                 .anyRequest().authenticated()
                 .and()
 

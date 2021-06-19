@@ -13,5 +13,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     * userName으로 조회시 authorities 필드를 EAGER 조회
     * */
     @EntityGraph(attributePaths = "authorities")
-    Optional<User> findOneWithAuthoritiesByUserName(String userName);
+    Optional<User> findOneWithAuthoritiesByUsername(String username);
 }

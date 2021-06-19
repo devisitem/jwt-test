@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,8 +23,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(final String userName) throws UsernameNotFoundException {
-        return userRepository.findOneWithAuthoritiesByUserName(userName)
+        return userRepository.findOneWithAuthoritiesByUsername(userName)
                 .map(user -> createUser(userName, user))
                 .orElseThrow(() ->new UsernameNotFoundException("there is no User By "+userName));
     }

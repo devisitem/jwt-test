@@ -15,7 +15,7 @@ public class LoginDto {
 
     @NotNull
     @Size(min = 4, max = 50)
-    private String userName;
+    private String username;
 
     @NotNull
     @Size(min = 4, max = 100)
